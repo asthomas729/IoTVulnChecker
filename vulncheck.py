@@ -26,7 +26,8 @@ import re
 def locate_devices():
     # find the IP address and subnet mask
     # scan the subnet for devices
-    # check if the devices are IoT devices
+    # check if the devices are IoT devices (check signatures, headers, etc.)
+    # discard non-IoT devices (if it can't be determined, treat as IoT)
     pass
 
 def configs():
@@ -48,35 +49,53 @@ def configs():
             pass
     # look for other configuration issues/best practices (this may depend on type of file and program, need to compile a list)
 
-def patch_level():
+def patch_level_local():
     # check patch level
+    # linux system: find the IoT process and check current version
+    #  - Then check online for most recent version
+    # on non-linux system, check online for most recent version and release date
+    #  - check if the system is automatically updated
     pass
 
-def cve():
-    # check CVEs
+def patch_level_net():
+    # check scan for any indications of patch level
+    # check online for most recent version and release date
+    #  - check if the system is automatically updated
+    pass
+
+def cve(version):
+    # check CVE Details for "version"
     pass
 
 def comms():
     # check communication protocols (http/s, bluetooth, 4/5g, mqtt, zigbee, etc.)
     # look for end-to-end encryption
+    #  - look for encryption keys
+    # check protocol versions
+    # check encryption types and versions
     pass
 
 def passwords():
     # check for device users
-    # check for device hashes
+    # check for device hash types
+    # check for logged/plaintext/encoded passwords
     # look for login methods (ssh, http/s, telnet, etc.)
-    # find/check default creds
-    # check common/weak passwords
+    # find/check default creds (make a list of common ones
+    # check common/weak passwords (small list of passwords to check agains, potentially a bruteforce attack to test password length)
     pass
 
 def ids():
     # look for an IDS on the device
+    #  - list of common host-based IDS programs
+    #  - only for linux systems
+    # if the device can't handle a host-based IDS, check for a network IDS/SIEM
     pass
 
 def siem():
     # look for evidence of a SIEM on the device
-    # splunk universal forwarder
-    # beats (filebeats, etc.)
+    #  - splunk universal forwarder
+    #  - beats (filebeats, etc.)
+    # look at network traffic for evidence of a SIEM
     pass
 
 def firewall():
