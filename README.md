@@ -1,15 +1,15 @@
 # IoTVulnChecker
-Vulnerability Checker for IoT Devices
+Configuration and Security Checker for IoT Devices
 
 Actions:
 - Checks the device configuration
- - Configuration files
- - Passwords
- - Patches
+	- Configuration files
+	- Passwords
+	- Patches
 - Checks for security applications
- - IDS
- - SIEM
- - Firewall
+	- IDS
+	- SIEM
+	- Firewall
 
 Report:
 - List of IoT devices found
